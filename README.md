@@ -6,7 +6,7 @@
   <a href="https://github.com/HELIX-Origin/nh-reader/releases"><img src="https://img.shields.io/github/v/release/HELIX-Origin/nh-reader?include_prereleases&label=Release&color=blue" alt="Release" height="20" /></a>
   <a href="https://docs.helix-origin.club/nh-reader/"><img src="https://img.shields.io/badge/Docs-docs.helix--origin.club-brightgreen" alt="Documentation" height="20" /></a>
   <a href="https://wiki.helix-origin.club/nh-reader/"><img src="https://img.shields.io/badge/Wiki-wiki.helix--origin.club-brightgreen" alt="Technical Wiki" height="20" /></a>
-  <a href="https://opensource.org/licenses/BSD-3-Clause"><img src="https://img.shields.io/badge/License-BSD--3--Clause-blue.svg" alt="License: BSD-3-Clause" height="20" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT" height="20" /></a>
   <a href="https://tauri.app"><img src="https://img.shields.io/badge/Tauri-v2-blue?logo=tauri" alt="Tauri v2" height="20" /></a>
 </p>
 
@@ -49,6 +49,23 @@ npm test                 # cargo check + cargo test + svelte-check
 
 ---
 
+## 💬 Community & Contributing
+
+- 📖 [Contributing Guide](CONTRIBUTING.md) — development setup, coding conventions, and the PR process.
+- 🤝 [Code of Conduct](CODE_OF_CONDUCT.md) — community expectations.
+- 🛟 [Support](SUPPORT.md) — where to get help.
+- 🏛️ [Governance](GOVERNANCE.md) — roles, decision making, and release policy.
+- 🔒 [Security Policy](SECURITY.md) — private vulnerability reporting.
+- 💬 [Discussions](https://github.com/HELIX-Origin/nh-reader/discussions) · [Discord](https://discord.com/invite/Ww3XBZC2HV)
+
+See also [Privacy](PRIVACY.md), [Terms](TOS.md), [Changelog](CHANGELOG.md), and [Citation](CITATION.cff).
+
+---
+
 ## ⚖️ License
 
-[BSD-3-Clause](LICENSE) — Copyright (c) 2026, HELIX Origin. Independent client; not affiliated with nhentai.net.
+[MIT](LICENSE) — Copyright (c) 2026, HELIX Origin. Independent client; not affiliated with nhentai.net.
+
+---
+
+<sub>_Scaffolded with the [HELIX-Origin agent ecosystem](https://github.com/HELIX-Origin/agents)._</sub>

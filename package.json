@@ -36,7 +36,7 @@
     "sign:macos": "node scripts/sign.mjs macos"
   },
   "author": "HELIX Origin",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "dependencies": {
     "@tauri-apps/api": "^2",
     "@tauri-apps/plugin-opener": "^2"

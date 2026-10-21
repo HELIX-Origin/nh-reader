@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated:** 2026-10-01 · **Version 0.6.1**
+**Last updated:** 2026-10-07 · **Version 0.7.5**
 
 The NH Reader client ("the App") is built around one principle: **your data stays on your
 machine**. This policy describes what the App collects, stores, and transmits in plain terms.
@@ -65,5 +65,5 @@ on GitHub). The installer itself respects the same local-only principles; uninst
 ## 📬 7. Contact
 
 Questions? Open an issue or discussion on the
-[GitHub repository](https://github.com/HELIX-Origin/NH-Reader). We have no data to hand
+[GitHub repository](https://github.com/HELIX-Origin/nh-reader). We have no data to hand
 over, but we're happy to answer.

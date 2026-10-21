@@ -34,10 +34,10 @@ If you have not read it yet, the [`README.md`](./README.md) provides the high-le
 
 ## Ways to Contribute
 
-- **Report bugs** via [GitHub Issues](https://github.com/HELIX-Origin/NH-Reader/issues) using the bug-report template.
-- **Propose features** via [GitHub Issues](https://github.com/HELIX-Origin/NH-Reader/issues) using the feature-proposal template.
+- **Report bugs** via [GitHub Issues](https://github.com/HELIX-Origin/nh-reader/issues) using the bug-report template.
+- **Propose features** via [GitHub Issues](https://github.com/HELIX-Origin/nh-reader/issues) using the feature-proposal template.
 - **Contribute translations** for your language (100% drop-in, see [Contributing Translations](#contributing-translations)).
-- **Improve documentation** in `README.md` or `docs/`.
+- **Improve documentation** in `README.md`, `CONTRIBUTING.md`, or the centralized docs hub.
 - **Submit code changes** via pull request.
 - **Review pull requests** from other contributors.
 
@@ -256,7 +256,7 @@ Always run the relevant checks before declaring a task done:
 ```
 README.md                    # Human-facing quick start and overview
 CHANGELOG.md                 # Release changelog
-LICENSE.md                   # BSD 3-Clause license
+LICENSE                      # MIT license
 CITATION.cff                 # Citation metadata
 .github/                     # Issue templates and CI workflows
 src/                         # Frontend SvelteKit SPA
@@ -277,7 +277,6 @@ src-tauri/                   # Rust backend
     db.rs                    # SQLite persistence with poison-recovered locks
     installer.rs             # Unified installer/uninstaller logic
     platform/                # Platform-specific installer & uninstaller helpers
-docs/                        # Documentation pages (with live translation & in-page nav)
 ```
 
 ---
@@ -383,11 +382,23 @@ All ten unit tests must pass:
 
 ## Pull Request Process
 
+The contribution path from idea to merge:
+
+```mermaid
+flowchart TD
+    issue[Open an issue] --> branch[Create a branch]
+    branch --> commit[Commit changes]
+    commit --> gate[Run the quality gate]
+    gate --> pr[Open a pull request]
+    pr --> review[Address review feedback]
+    review --> merge[Maintainer merges]
+```
+
 1. **Open an issue first** for non-trivial changes.
 2. **Create a branch** from `main`.
 3. **Make focused commits** following the commit-message format.
 4. **Run checks** (`npm run check`, `cargo check`, `cargo test`).
-5. **Update docs** if behavior changed (`CHANGELOG.md`, `README.md`, `docs/` as appropriate).
+5. **Update docs** if behavior changed (`CHANGELOG.md`, `README.md`, or the centralized docs hub as appropriate).
 6. **Open a PR** and fill out the template. Use `--body-file` for non-interactive submission if needed.
 7. **Respond to review feedback** and keep the branch up to date with `main`.
 
@@ -424,8 +435,8 @@ Only maintainers cut releases.
 
 ## Getting Help
 
-- Read the [`README.md`](./README.md) and check `docs/` and existing Discussions first.
-- Check `docs/` and existing [Discussions](https://github.com/HELIX-Origin/NH-Reader/discussions).
-- Open a [GitHub Issue](https://github.com/HELIX-Origin/NH-Reader/issues) if something is unclear or broken.
+- Read the [`README.md`](./README.md), [`SUPPORT.md`](./SUPPORT.md), and the [documentation hub](https://docs.helix-origin.club/nh-reader/) first.
+- Check existing [Discussions](https://github.com/HELIX-Origin/nh-reader/discussions) and the [Discord community](https://discord.com/invite/Ww3XBZC2HV).
+- Open a [GitHub Issue](https://github.com/HELIX-Origin/nh-reader/issues) if something is unclear or broken.
 
 Thank you for contributing.

@@ -7,12 +7,12 @@ seriously — both for the app itself and for the privacy of your local data.
 
 | Version | Supported |
 | --- | --- |
-| 0.4.x | ✅ Active |
-| 0.3.x | ⚠️ Upgrade recommended |
-| < 0.3 | ❌ No longer supported |
+| 0.7.x | ✅ Active |
+| 0.6.x | ⚠️ Upgrade recommended |
+| < 0.6 | ❌ No longer supported |
 
 Only the latest release receives security fixes. Check the
-[Releases page](https://github.com/HELIX-Origin/NH-Reader/releases) for the current
+[Releases page](https://github.com/HELIX-Origin/nh-reader/releases) for the current
 version.
 
 ## 🚨 Reporting a vulnerability
@@ -23,7 +23,7 @@ Report privately:
 
 - **GitHub:** use the repository's **private vulnerability reporting** feature
   (Repository → `Security` → `Report a vulnerability`) at
-  `https://github.com/HELIX-Origin/NH-Reader/security`.
+  `https://github.com/HELIX-Origin/nh-reader/security`.
 - **Email:** if needed, reach a maintainer via the discussion board or a maintainer's public
   profile — we will respond as soon as possible.
 
@@ -33,6 +33,16 @@ In your report, please include:
 2. A clear description of the vulnerability.
 3. Steps to reproduce (minimal, if possible).
 4. Impact assessment and — if you have one — a suggested fix.
+
+The disclosure path every report follows:
+
+```mermaid
+flowchart TD
+    report[Private report] --> ack[Acknowledge within 5 days]
+    ack --> triage[Triage severity]
+    triage --> fix[Ship a fix]
+    fix --> note[Changelog + release]
+```
 
 ### ⏭️ What happens next
 
@@ -79,7 +89,7 @@ Out of scope:
 
 ## ⬜ Security hardening wishlist
 
-These are tracked in the organization roadmap (`ROADMAP.md`, maintained in the workspace agents ecosystem):
+These are tracked in this repository's [`ROADMAP.md`](ROADMAP.md):
 
 - 🔏 Code-signing / notarization for Windows + macOS release binaries.
 - Installer signature verification prior to launch-any-later-updates.

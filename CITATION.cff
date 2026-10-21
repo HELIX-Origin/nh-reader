@@ -2,22 +2,22 @@ cff-version: 1.2.0
 message: >-
   If you use this software in your research, or build upon it in your own work,
   please cite it using the metadata below.
-title: NH Desktop
+title: NH Reader
 abstract: >-
-  NH Desktop is a lightweight, modern, cross-platform desktop client for
-  nhentai.net, built with Tauri 2 and SvelteKit. It provides a custom UI,
+  NH Reader is a lightweight, modern, cross-platform desktop and Android client
+  for nhentai.net, built with Tauri 2 and SvelteKit. It provides a custom UI,
   advanced search and filtering, a global blacklist, favorites and history,
   a paged gallery reader, background download and prefetch services, a disk
   image cache, and a native unified installer.
 type: software
 authors:
   - name: HELIX Origin
-  - name: NH Desktop Contributors
-repository-code: 'https://github.com/HELIX-Origin/nhentai-desktop'
-url: 'https://github.com/HELIX-Origin/nhentai-desktop'
-license: BSD-3-Clause
-version: 0.4.0
-date-released: '2026-09-30'
+  - name: NH Reader Contributors
+repository-code: 'https://github.com/HELIX-Origin/nh-reader'
+url: 'https://docs.helix-origin.club/nh-reader/'
+license: MIT
+version: 0.7.5
+date-released: '2026-10-07'
 keywords:
   - nhentai
   - nhentai-client
