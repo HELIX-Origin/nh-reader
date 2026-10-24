@@ -50,8 +50,15 @@ flowchart LR
 
 ---
 
+## 3) `[nh-reader]` Milestone M14 — Native C++ Windows Architecture & Scope Reduction (Future Planning)
+- **State:** Architecture planning; queued for future implementation (other projects prioritized first).
+- **Core Pivot:** Convert from Tauri v2 into a pure native C++20 Win32 desktop application and reduce scope purely to Windows (eliminating Android and POSIX targets for zero-overhead performance, instant startup, Direct2D/WinUI 3 rendering, and native throttled WinHTTP pipeline).
+- **Ledgers:** `ROADMAP.md` (M14), `PLAN.md` (Sprint 3), `TODO.md` (M14 candidates)
+
+---
+
 ## N) Shell / Tooling Notes
-- Non-interactive shell policy active (no pagers/editors, fail-fast); use OpenCode Read/Write/Edit for files.
+- Non-interactive shell policy active (no pagers/editors, fail-fast); use file editing tools.
 - Node v26+ runs `.ts` scripts natively via type stripping; run CLI modules as `node <file>.ts`.
 - PowerShell-aware quoting is required for paths with spaces.
 

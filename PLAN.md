@@ -49,6 +49,15 @@ flowchart TD
 - `[nh-reader]` Background auto-update checker and GitHub release notification toasts.
 - `[nh-reader]` Unified maintenance scripts standard (`main:sub:option`, `.mjs`).
 
+### ⏳ Sprint 3: `[nh-reader]` — Native C++ Windows Architecture & Scope Reduction (Future, v1.0.0)
+- **Project Identifier:** `[nh-reader]`
+- **Repository Path:** `projects/nh-reader`
+- **Objective:** Convert `nh-reader` from Tauri v2 into a pure native C++ Windows desktop application and reduce its scope purely to Windows.
+- `[nh-reader]` Phase 1: Native C++20 Win32 & Direct2D / WinUI 3 architecture design and spike.
+- `[nh-reader]` Phase 2: Native SQLite local cache and throttled network pipeline (WinHTTP/curl).
+- `[nh-reader]` Phase 3: Hardware-accelerated paged & continuous gallery reader.
+- `[nh-reader]` Phase 4: Retire Android and POSIX target code to streamline the codebase into a zero-overhead Windows app.
+
 ---
 
 ## ✅ Completed Sprints

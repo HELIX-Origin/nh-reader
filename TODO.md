@@ -18,7 +18,7 @@
 - **Improve & Categorize User Directives**: Rewrite user directives into clean, self-contained engineering requirements grouped by domain sub-headers. Never dump raw chronological chat quotes or leave contradictory superseded statements.
 - **100% Active Direction Accuracy**: Whenever a requirement pivots or supersedes an earlier decision, replace the superseded directive in place across `ROADMAP.md`, `PLAN.md`, `TODO.md`, and `BUGS.md`.
 - **Same-Change Updates**: When a task changes behavior or scope, update this file **in the same change**.
-- **Done Moves Down**: When a workstream is done, check it off and archive detailed checklists to `.github/TODO-ARCHIVE.md`, leaving a concise single-line summary under Completed Workstreams.
+- **Done Moves Down**: When a workstream is done, check it off and collapse it to a concise single-line summary under Completed Workstreams, leaving detailed historical records in `CHANGELOG.md`.
 - **Explicit Project Tagging**: Every workstream header, checklist group, and individual checkbox item MUST be prefixed with `[nh-reader]`.
 - **Tracking Docs Stay True**: Update `ROADMAP.md`, `TODO.md`, `BUGS.md`, and `PLAN.md` first or in lockstep with code changes.
 - **Always Track Everything**: Every new feature request, enhancement, or bug report must be logged before execution.
@@ -47,6 +47,12 @@ flowchart LR
 - [ ] `[nh-reader]` **Multi-Profile Partitioning**: Allow switching between isolated library/blacklist profile stores.
 - [ ] `[nh-reader]` **Background Update Inspection**: Non-intrusive GitHub release notification check on app launch.
 - [ ] `[nh-reader]` **Unified Scripts Standard**: Ensure all maintenance scripts follow canonical `main:sub:option` naming and `.mjs` conventions.
+
+### `[nh-reader]` — Milestone M14: Native C++ Windows Architecture & Scope Reduction (Future)
+- [ ] `[nh-reader]` **Architecture Planning & Proof-of-Concept**: Plan native C++20 Win32 desktop architecture with Direct2D / WinUI 3 canvas.
+- [ ] `[nh-reader]` **Scope Reduction**: Purely a Windows application; eliminate Android and POSIX targets for zero-overhead performance.
+- [ ] `[nh-reader]` **Native Networking & Cache**: Pure C++ WinHTTP/curl and SQLite local cache pipeline with image cache management.
+- [ ] `[nh-reader]` **Reader UI**: Native hardware-accelerated continuous vertical and paged reader canvas.
 
 ---
 

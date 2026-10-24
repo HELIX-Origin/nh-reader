@@ -14,13 +14,13 @@
 - **Zero External Mentions**: Never directly mention by name any external, third-party, or deleted projects or repositories.
 - **No Typo Duplication**: When recording user reports or directives, clean and fix all typos to preserve professional quality.
 - **Explicit Project Tagging**: Every milestone, sprint, task, or deliverable header and row MUST explicitly include the project name `[nh-reader]`.
-- **Bare Minimal Root & Normalized Archive**: Keep this file focused on active and upcoming milestones; archive delivered milestone narratives into `.github/ROADMAP-ARCHIVE.md` when detail accumulates.
+- **Bare Minimal Completed Entries**: Keep this file focused on active and upcoming milestones; retain delivered milestones as concise one-line entries under Historical Milestones, with full narratives in `CHANGELOG.md`.
 
 ---
 
 ## 🔭 Vision & Positioning Principles
 
-1. **Core Value Proposition**: A lightweight, modern, cross-platform client for nhentai.net with fast search, powerful filtering, a global blacklist, and a private local-first architecture.
+1. **Core Value Proposition**: A lightweight, modern client for nhentai.net with fast search, powerful filtering, a global blacklist, and a private local-first architecture. Currently built with Tauri v2; future roadmap schedules conversion into a pure native C++ Windows application.
 2. **Design Principles**:
    - **Local-first privacy**: no accounts, telemetry, cloud sync, or third-party trackers; user data stays in local SQLite.
    - **Fast and fluent browsing**: responsive grids, streaming search, and a paged reader.
@@ -36,17 +36,17 @@
 | # | Milestone | Status | Release / Target | Focus |
 |---|---|---|---|---|
 | **M1–M12** | `[nh-reader]` Core client & localization | ✅ Shipped | v0.1.0 – v0.7.5 | Foundation, browse, search, blacklist, SQLite cache, reader, storage budgets, 18-language i18n, title bar, NSIS installer, signing |
-| **M13** | `[nh-reader]` Post-v0.7.5 enhancements | ⏳ Planned | Next minor | Tag analytics, multi-profile partitions, background update inspection, unified scripts |
+| **M13** | `[nh-reader]` Post-v0.7.5 enhancements | ⏳ Planned | v0.8.0 | Tag analytics, multi-profile partitions, background update inspection, unified scripts |
+| **M14** | `[nh-reader]` Native C++ Windows Architecture & Scope Reduction | 🔮 Future | v1.0.0 | Convert into pure native C++ Windows desktop application; drop cross-platform/Android overhead for zero-overhead native execution |
 
 The delivery arc from shipped milestones to planned work:
 
 ```mermaid
 flowchart LR
     shipped[M1–M12 shipped] --> m13[M13 planned]
-    m13 --> analytics[Tag analytics]
-    m13 --> profiles[Multi-profile]
-    m13 --> updates[Update inspection]
-    m13 --> scripts[Unified scripts]
+    m13 --> m14["M14 planned: Native C++ Windows pivot"]
+    m14 --> win32[Pure Windows native execution]
+    m14 --> drop_android[Eliminate cross-platform overhead]
 ```
 
 ---
@@ -58,6 +58,11 @@ flowchart LR
 - ⏳ **Multi-Profile Partitioning**: switch between isolated library/blacklist profile stores.
 - ⏳ **Background Update Inspection**: non-intrusive GitHub release notification on app launch.
 - ⏳ **Unified Scripts Standard**: canonical `main:sub:option` naming and `.mjs` maintenance scripts.
+
+### `[nh-reader]` — Milestone M14: Native C++ Windows Architecture & Scope Reduction (Future)
+- 🔮 **Pure Native C++ Engine**: Complete rewrite into native C++20 Win32 desktop application, leveraging Direct2D / WinUI 3 for an ultra-responsive, zero-webview reader.
+- 🔮 **Windows-Only Scope Reduction**: Eliminate Android and POSIX target maintenance, focusing 100% of optimizations on Windows 11 performance, low memory footprint, and native keyboard/mouse navigation.
+- 🔮 **Direct SQLite & Network Pipeline**: Native C++ WinHTTP/curl and SQLite engine with image caching pipeline.
 
 ---
 
