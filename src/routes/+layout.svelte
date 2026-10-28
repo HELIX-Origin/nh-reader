@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { goto } from '$app/navigation';
+	import { goto, afterNavigate } from '$app/navigation';
 	import { base } from '$app/paths';
 	import { onMount } from 'svelte';
 	import Icon from '$lib/components/Icon.svelte';
@@ -13,18 +13,18 @@
 	import { cacheInit } from '$lib/cache';
 	import { setTitlebarQuery } from '$lib/stores/titlebarSearch.svelte';
 	import { locale } from '$lib/stores/locale.svelte';
+	import { setListingUrl } from '$lib/stores/navigation.svelte';
 	import { getCurrentWindow } from '@tauri-apps/api/window';
 	import LoginModal from '$lib/components/LoginModal.svelte';
 	import WindowControls from '$lib/components/WindowControls.svelte';
 	import { getPlatform } from '$lib/platform';
-	import '../lib/design/app.css';
+	import '$styles/app.scss';
 
 	let { children } = $props();
 
 
 	const nav = $derived([
-		{ href: '/', label: locale.t('nav.latest'), icon: 'grid' },
-		{ href: '/popular', label: locale.t('nav.popular'), icon: 'flame' },
+		{ href: '/', label: locale.t('nav.browse'), icon: 'compass' },
 		{ href: '/library', label: locale.t('nav.library'), icon: 'book' },
 		{ href: '/favorites', label: locale.t('nav.favorites'), icon: 'heart' },
 		{ href: '/history', label: locale.t('nav.history'), icon: 'clock' },
@@ -48,6 +48,15 @@
 	let ready = $state(false);
 	let avatarBroken = $state(false);
 	let loginModalOpen = $state(false);
+
+	afterNavigate(({ from }) => {
+		if (from && from.url) {
+			const path = from.url.pathname;
+			if (!path.includes('/gallery/')) {
+				setListingUrl(from.url.pathname + from.url.search);
+			}
+		}
+	});
 
 	$effect(() => {
 		account.user;
@@ -196,22 +205,24 @@
 		</main>
 	</div>
 
-	<nav class="bottom-nav" aria-label="Primary">
-		<div class="bottom-nav-inner">
-			{#each nav as item}
-				<a
-					class="bottom-nav-item"
-					class:active={page.url.pathname === item.href}
-					href={item.href}
-				>
-					<div class="nav-icon-wrapper">
-						<Icon name={item.icon} size={20} />
-					</div>
-					<span class="nav-label">{item.label}</span>
-				</a>
-			{/each}
-		</div>
-	</nav>
+	{#if !page.url.pathname.includes('/reader')}
+		<nav class="bottom-nav" aria-label="Primary">
+			<div class="bottom-nav-inner">
+				{#each nav as item}
+					<a
+						class="bottom-nav-item"
+						class:active={page.url.pathname === item.href}
+						href={item.href}
+					>
+						<div class="nav-icon-wrapper">
+							<Icon name={item.icon} size={20} />
+						</div>
+						<span class="nav-label">{item.label}</span>
+					</a>
+				{/each}
+			</div>
+		</nav>
+	{/if}
 
 	<LoginModal bind:open={loginModalOpen} />
 </div>

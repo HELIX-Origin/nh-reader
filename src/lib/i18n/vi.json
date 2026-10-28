@@ -10,6 +10,7 @@
 		"version": "Phiên bản"
 	},
 	"nav": {
+		"browse": "Duyệt",
 		"latest": "Mới nhất",
 		"popular": "Phổ biến",
 		"library": "Thư viện",
@@ -263,6 +264,19 @@
 		"emptyTitle": "Hiện chưa có truyện thịnh hành",
 		"emptyDesc": "Vui lòng quay lại sau."
 	},
+	"browse": {
+		"title": "Duyệt",
+		"subtitle": "Doujin mới tải lên và phổ biến",
+		"loading": "Đang tải thư viện…",
+		"sortNewest": "Mới nhất",
+		"sortPopular": "Phổ biến",
+		"sortPopularWeek": "Phổ biến tuần này",
+		"sortPopularToday": "Phổ biến hôm nay",
+		"random": "Ngẫu nhiên",
+		"randomTooltip": "Mở một doujin ngẫu nhiên (tuân theo danh sách đen)",
+		"findingRandom": "Đang tìm ngẫu nhiên…",
+		"noRandomFound": "Không tìm thấy doujin nào chưa bị chặn. Hãy thử lại."
+	},
 	"latest": {
 		"title": "Mới nhất",
 		"subtitle": "Truyện vừa mới đăng tải",
@@ -305,6 +319,7 @@
 		"emptyFavoritesHint": "Truyện bạn đã yêu thích và tải xuống sẽ xuất hiện tại đây để đọc ngoại tuyến."
 	},
 	"common": {
+		"back": "Quay lại",
 		"somethingWentWrong": "Đã xảy ra lỗi",
 		"retry": "Thử lại",
 		"page": "Trang",

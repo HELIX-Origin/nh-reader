@@ -190,6 +190,7 @@ pub fn run() {
         .invoke_handler(tauri::generate_handler![
             commands::fetch_new,
             commands::fetch_popular,
+            commands::fetch_random_id,
             commands::fetch_tagged,
             commands::search_galleries,
             commands::fetch_gallery,

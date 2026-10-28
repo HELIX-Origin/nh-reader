@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last updated:** 2026-10-07 · **Version 0.7.5**
+**Last updated:** 2026-10-28 · **Version 0.8.0**
 
 The NH Reader client ("the App") is built around one principle: **your data stays on your
 machine**. This policy describes what the App collects, stores, and transmits in plain terms.

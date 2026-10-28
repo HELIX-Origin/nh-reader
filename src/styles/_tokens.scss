@@ -1,0 +1,116 @@
+// ============================================================================
+// NH Reader Design Tokens (_tokens.scss)
+// ============================================================================
+
+// Theme Colors
+$color-bg: #141414;
+$color-bg-elevated: #1f1f1f;
+$color-surface: #1f1f1f;
+$color-surface-panel: #1f1f1f;
+$color-surface-hover: #2a2a2a;
+$color-surface-active: #363636;
+
+// Borders
+$color-border: #2a2a2a;
+$color-border-subtle: #2a2a2a;
+$color-border-strong: #383838;
+
+// Text Typography
+$color-text: #f0f0f0;
+$color-text-soft: #d9d9d9;
+$color-text-secondary: #a8a8a8;
+$color-text-faint: #858585;
+
+// Accents
+$color-accent: #ed2553;
+$color-accent-hover: #ee4972;
+$color-accent-soft: rgba(237, 37, 83, 0.14);
+$color-accent-border: rgba(237, 37, 83, 0.45);
+$color-accent-glow: rgba(237, 37, 83, 0.35);
+
+// Semantic Status
+$color-danger: #f87171;
+$color-danger-soft: rgba(248, 113, 113, 0.12);
+$color-success: #4ade80;
+$color-success-soft: rgba(74, 222, 128, 0.14);
+$color-warning: #facc15;
+
+// Radii
+$radius-xs: 4px;
+$radius-sm: 6px;
+$radius: 8px;
+$radius-md: 10px;
+$radius-lg: 12px;
+$radius-pill: 999px;
+
+// Category Dot / Badge Theme Map
+$tag-colors: (
+	'artist': #f6b545,
+	'character': #3ecf8e,
+	'parody': #7c5cff,
+	'group': #35c9d4,
+	'language': #9d9daa,
+	'category': #f4576b,
+	'tag': var(--text-faint),
+);
+
+// CSS Custom Properties Export
+:root {
+	--bg: #{$color-bg};
+	--bg-elevated: #{$color-bg-elevated};
+	--surface: #{$color-surface};
+	--surface-panel: #{$color-surface-panel};
+	--surface-hover: #{$color-surface-hover};
+	--surface-active: #{$color-surface-active};
+
+	--border: #{$color-border};
+	--border-subtle: #{$color-border-subtle};
+	--border-strong: #{$color-border-strong};
+
+	--text: #{$color-text};
+	--text-soft: #{$color-text-soft};
+	--text-secondary: #{$color-text-secondary};
+	--text-faint: #{$color-text-faint};
+
+	--text-sm: 13px;
+	--text-xs: 11px;
+
+	--accent: #{$color-accent};
+	--accent-hover: #{$color-accent-hover};
+	--accent-soft: #{$color-accent-soft};
+	--accent-border: #{$color-accent-border};
+	--accent-glow: #{$color-accent-glow};
+
+	--danger: #{$color-danger};
+	--danger-soft: #{$color-danger-soft};
+	--success: #{$color-success};
+	--success-soft: #{$color-success-soft};
+	--warning: #{$color-warning};
+
+	--radius-xs: #{$radius-xs};
+	--radius-sm: #{$radius-sm};
+	--radius: #{$radius};
+	--radius-md: #{$radius-md};
+	--radius-lg: #{$radius-lg};
+
+	--scrollbar-thumb: hsl(0, 0%, 30%);
+	--scrollbar-thumb-hover: hsl(0, 0%, 38%);
+
+	--reader-bg: #141414;
+	--switch-track: hsl(0, 0%, 30%);
+
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+	--shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+
+	--sidebar-w: 224px;
+	--topbar-h: 54px;
+
+	--font-ui: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+		'Segoe UI Arabic', 'Noto Sans Arabic', 'Tahoma', Arial, sans-serif;
+	--font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+		'Segoe UI Arabic', 'Noto Sans Arabic', 'Tahoma', Arial, sans-serif;
+
+	--focus-ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+
+	color-scheme: dark;
+}

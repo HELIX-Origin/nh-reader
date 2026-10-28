@@ -43,6 +43,6 @@
 	{#if placeholder}
 		<span class="ph-icon"><Icon name="image" size={22} /></span>
 	{:else}
-		<img src={currentSrc} alt={alt} loading={lazy} onerror={onError} />
+		<img src={currentSrc} alt={alt} loading={lazy} decoding="async" fetchpriority={lazy === 'eager' ? 'high' : 'low'} onerror={onError} />
 	{/if}
 </div>

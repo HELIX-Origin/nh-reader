@@ -10,6 +10,7 @@
 		"version": "版本"
 	},
 	"nav": {
+		"browse": "瀏覽",
 		"latest": "最新",
 		"popular": "熱門",
 		"library": "書架",
@@ -263,6 +264,19 @@
 		"emptyTitle": "目前暫無熱門畫冊",
 		"emptyDesc": "稍後再來看看吧。"
 	},
+	"browse": {
+		"title": "瀏覽",
+		"subtitle": "最新上傳與熱門本子",
+		"loading": "正在載入圖庫…",
+		"sortNewest": "最新",
+		"sortPopular": "熱門",
+		"sortPopularWeek": "本週熱門",
+		"sortPopularToday": "今日熱門",
+		"random": "隨機",
+		"randomTooltip": "隨機開啟一本（遵守黑名單）",
+		"findingRandom": "正在隨機尋找…",
+		"noRandomFound": "找不到未被封鎖的本子，請重試。"
+	},
 	"latest": {
 		"title": "最新",
 		"subtitle": "最新上傳畫冊",
@@ -305,6 +319,7 @@
 		"emptyFavoritesHint": "已加入收藏並且下載完成的畫冊將顯示在此處，方便離線閱讀。"
 	},
 	"common": {
+		"back": "返回",
 		"somethingWentWrong": "發生錯誤",
 		"retry": "重試",
 		"page": "頁碼",

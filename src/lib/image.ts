@@ -24,6 +24,7 @@ export function avatarUrl(href: string | null | undefined): string {
 }
 
 const blobCache = new Map<string, string>();
+const MAX_BLOB_CACHE_SIZE = 150;
 
 export function blobUrlFor(href: string): string | undefined {
 	return blobCache.get(href);
@@ -44,10 +45,23 @@ export function revokeAllBlobs(): void {
 
 export async function proxiedBlobUrl(href: string): Promise<string> {
 	const existing = blobCache.get(href);
-	if (existing) return existing;
+	if (existing) {
+		// Refresh LRU position
+		blobCache.delete(href);
+		blobCache.set(href, existing);
+		return existing;
+	}
 	const bytes = await backend.proxyImage(href);
 	const blob = new Blob([new Uint8Array(bytes)], { type: 'image/jpeg' });
 	const url = URL.createObjectURL(blob);
+	if (blobCache.size >= MAX_BLOB_CACHE_SIZE) {
+		const oldestKey = blobCache.keys().next().value;
+		if (oldestKey) {
+			const oldUrl = blobCache.get(oldestKey);
+			if (oldUrl) URL.revokeObjectURL(oldUrl);
+			blobCache.delete(oldestKey);
+		}
+	}
 	blobCache.set(href, url);
 	return url;
 }

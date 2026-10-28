@@ -36,6 +36,7 @@
 	];
 
 	let pickerType = $state('tag');
+	let pickerSort = $state<'name' | 'popular'>('name');
 	let pickerPage = $state(1);
 	let options = $state<Paginated<Tag> | null>(null);
 	let pickerLoading = $state(false);
@@ -45,15 +46,21 @@
 
 	$effect(() => {
 		const type = pickerType;
+		const sort = pickerSort;
 		const page = pickerPage;
 		let cancelled = false;
 		pickerLoading = true;
 		pickerError = null;
 		options = null;
 		api
-			.tagsByType(type, 'popular', page, 24)
+			.tagsByType(type, sort, page, 48)
 			.then((res) => {
-				if (!cancelled) options = res;
+				if (!cancelled) {
+					if (sort === 'name' && res?.result) {
+						res.result.sort((a, b) => a.name.localeCompare(b.name));
+					}
+					options = res;
+				}
 			})
 			.catch((e) => {
 				if (!cancelled) pickerError = String(e);
@@ -68,6 +75,11 @@
 
 	function changeType(type: string) {
 		pickerType = type;
+		pickerPage = 1;
+	}
+
+	function changeSort(sort: 'name' | 'popular') {
+		pickerSort = sort;
 		pickerPage = 1;
 	}
 
@@ -161,18 +173,37 @@
 		<div class="row-title">{locale.t('blacklist.pickTags')}</div>
 		<p class="faint">{locale.t('blacklist.pickTagsDesc')}</p>
 
-		<div class="type-tabs" role="tablist" aria-label={locale.t('blacklist.tagType')}>
-			{#each TYPES as t (t.value)}
+		<div class="picker-controls">
+			<div class="type-tabs" role="tablist" aria-label={locale.t('blacklist.tagType')}>
+				{#each TYPES as t (t.value)}
+					<button
+						class="type-tab"
+						class:on={pickerType === t.value}
+						role="tab"
+						aria-selected={pickerType === t.value}
+						onclick={() => changeType(t.value)}
+					>
+						{t.label}
+					</button>
+				{/each}
+			</div>
+
+			<div class="sort-tabs" role="tablist" aria-label="Sort tags">
 				<button
-					class="type-tab"
-					class:on={pickerType === t.value}
-					role="tab"
-					aria-selected={pickerType === t.value}
-					onclick={() => changeType(t.value)}
+					class="sort-tab"
+					class:on={pickerSort === 'name'}
+					onclick={() => changeSort('name')}
 				>
-					{t.label}
+					A–Z
 				</button>
-			{/each}
+				<button
+					class="sort-tab"
+					class:on={pickerSort === 'popular'}
+					onclick={() => changeSort('popular')}
+				>
+					Popular
+				</button>
+			</div>
 		</div>
 
 		{#if pickerError}

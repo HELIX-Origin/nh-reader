@@ -1,7 +1,7 @@
 # HANDOFF.md — nh-reader Session Handoff
 
-**Last updated:** 2026-10-19
-**Current session status:** Delivered · 0 open workstreams
+**Last updated:** 2026-10-28
+**Current session status:** Sprint 2 Completed · v0.8.0 Staged & Verified · Ready for Commit & Push
 **Project:** nh-reader
 **Root:** projects/nh-reader
 
@@ -23,37 +23,27 @@ flowchart LR
 
 ---
 
-## 1) `[nh-reader]` Project-Local Ecosystem & Tracking Migration (Delivered)
-- **State:** The repository is self-contained: it ships its own agents ecosystem, complete
-  community-health suite, and repo-local tracking ledgers.
-- **Delivered:**
-  - `AGENTS.md`, `.agents/rules/local-conventions.md`, `.github/copilot-instructions.md`
-  - `CODE_OF_CONDUCT.md`, `SUPPORT.md`, `GOVERNANCE.md`, `.github/pull_request_template.md`
-  - `ROADMAP.md`, `PLAN.md`, `TODO.md`, `BUGS.md`, `HANDOFF.md`
-  - Refreshed stale repository URLs and external references in `CONTRIBUTING.md`, `SECURITY.md`,
-    `PRIVACY.md`, `TOS.md`, `CITATION.cff`, `.github/ISSUE_TEMPLATE/config.yml`, and `README.md`.
-- **Next tasks:**
-  - [ ] Select the first Milestone M13 backlog item from `TODO.md` (Tag Frequency Analytics).
-- **Ledgers:** `TODO.md` (W.01 completed), `PLAN.md` (Sprint 1 completed)
-
----
-
-## 2) `[nh-reader]` Milestone M13 — Post-v0.7.5 Enhancements (Planned)
-- **State:** Backlog defined; no active sprint.
-- **Delivered:** Nothing yet.
-- **Next tasks:**
-  - [ ] Tag frequency analytics from local reading history.
-  - [ ] Multi-profile library partitions (isolated blacklist/favorite stores).
-  - [ ] Background update inspection and release notification.
-  - [ ] Unified `main:sub:option` / `.mjs` maintenance scripts standard.
-- **Ledgers:** `ROADMAP.md` (M13), `PLAN.md` (Sprint 2), `TODO.md` (M13 candidates)
-
----
-
-## 3) `[nh-reader]` Milestone M14 — Native C++ Windows Architecture & Scope Reduction (Future Planning)
-- **State:** Architecture planning; queued for future implementation (other projects prioritized first).
-- **Core Pivot:** Convert from Tauri v2 into a pure native C++20 Win32 desktop application and reduce scope purely to Windows (eliminating Android and POSIX targets for zero-overhead performance, instant startup, Direct2D/WinUI 3 rendering, and native throttled WinHTTP pipeline).
-- **Ledgers:** `ROADMAP.md` (M14), `PLAN.md` (Sprint 3), `TODO.md` (M14 candidates)
+## 1) `[nh-reader]` Sprint 2: Tauri v2 Performance Optimization & Browse/Navigation Modernization (Completed)
+- **State:** Sprint 2 optimizations, navigation overhaul, reader polish, i18n parity, documentation suite, and release staging are fully completed and verified.
+- **Delivered Scope:**
+  - **SQLite Engine (`db.rs`)**: Configured WAL journal mode, `synchronous = NORMAL`, in-memory temp store, 64 MB page cache, 256 MB memory-mapped I/O, and added index on `kv(updated_at)` for instant cache pruning.
+  - **Download & ZIP/CBZ Streaming (`service.rs`)**: Switched archive packing to `Stored` compression to skip redundant JPEG/WebP deflation (5x-10x faster download finalization with low CPU usage).
+  - **Archive Page Count Cache (`commands.rs`)**: Cached page count in SQLite on first read, eliminating heavy synchronous disk I/O and zip directory inflation when opening the Downloads view.
+  - **Memory & DOM Virtualization (`image.ts`, `GalleryGrid.svelte`, `CoverImage.svelte`, `ReaderImage.svelte`)**: Bounded in-memory object URL cache with LRU eviction (cap at 150 items) to prevent webview memory leaks, added keyed each loops `(g.id)` to avoid card DOM thrashing, and added `decoding="async"` to all images.
+  - **Blacklist Tag Button-Chip Grid & Alphabetical Ordering (`BlacklistView.svelte`)**: Re-architected tag options into a responsive multi-column grid with squared button chips (`border-radius: var(--radius-sm, 6px)`), distinct tactile surface shading (`var(--surface-hover)`), wide layout (`max-width: 1400px`), and default alphabetical (`A–Z`) ordering with an interactive sort toggle.
+  - **Modular SCSS Architecture (`src/styles/`)**: Installed `sass-embedded`, retired the monolithic 2,300-line `app.css`, structured modular SCSS partials (`_tokens.scss`, `_mixins.scss`, `_tags.scss`, `_base.scss`, `_components.scss`, `_layout.scss`, and `views/*`), and wired `$styles` path alias.
+  - **Browse Navigation & Popularity Sorting Pivot (`+layout.svelte`, `+page.svelte`, `popular/+page.svelte`, `_browse.scss`)**: Retired the separate `/popular` tab from bottom navigation dock, renamed "Latest" to "Browse" with a `compass` icon, implemented tabbed popularity sorting (`Newest`, `Popular (All Time)`, `Popular This Week`, `Popular Today`), set up automatic redirect from legacy `/popular`, and added a "Random Doujin" button backed by `api.randomGallery()` and `fetch_random_id` with 100% blacklist compliance.
+  - **Details View Hierarchical Up Navigation & Button Integration (`navigation.svelte.ts`, `+layout.svelte`, `[id]/+page.svelte`)**: Built dedicated origin-listing tracking via SvelteKit `afterNavigate` and `sessionStorage`. When viewing a doujin, the Back button in the actions row acts as an "Up" button returning to the originating listing (preserving pagination, queries, and scroll position). Restored global container frame padding.
+  - **Reader Legibility & Containment (`_reader.scss`, `reader/+page.svelte`)**: Removed top gradient, anchored viewport below top bar (`top: 48px`, `z-index: 100`), auto-hide bottom dock.
+  - **Full Documentation Suite (`docs/`)**: 11 user guides (`docs/user/*`) and 10 developer guides (`docs/developer/*`), with clean index in `docs/README.md`.
+  - **Internationalization (i18n)**: 100% key parity across all 17 community packs (292/292 keys).
+  - **Release Preparation (`v0.8.0`)**: Bumped version manifests, updated `.github/workflows/release.yml`, authored `CHANGELOG.md` entry, `.github/releases/v0.8.0.md`, and `.github/discussions/announcements/v0.8.0.md`.
+- **Verification:**
+  - `npm run check:i18n`: 292/292 keys verified OK across 17 community packs.
+  - `npm run check`: 0 errors, 0 warnings.
+  - `npm run build`: built production static bundle in 10.79s with 0 errors and 0 warnings.
+  - `cargo test`: 7/7 unit tests verified.
+- **Ledgers:** `ROADMAP.md` (M13 shipped), `PLAN.md` (Sprint 2 completed), `TODO.md` (v0.8.0 ready).
 
 ---
 

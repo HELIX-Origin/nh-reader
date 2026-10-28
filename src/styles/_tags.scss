@@ -1,0 +1,22 @@
+// ============================================================================
+// NH Reader Tag Theme Generator (_tags.scss)
+// ============================================================================
+
+@use 'tokens' as *;
+
+.dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 3px;
+	flex-shrink: 0;
+}
+
+@each $type, $color in $tag-colors {
+	.dot[data-type='#{$type}'] {
+		background: #{$color};
+	}
+
+	.tag-chip[data-type='#{$type}'] {
+		border-left: 2px solid #{$color};
+	}
+}

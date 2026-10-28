@@ -1,6 +1,6 @@
 # NH Reader — Terms of Service
 
-**Last updated:** 2026-10-07 · **Version 0.7.5**
+**Last updated:** 2026-10-28 · **Version 0.8.0**
 
 These Terms of Service ("Terms") govern your use of **NH Reader**, a client application
 ("the App") published by the **HELIX Origin** organization. By downloading, installing, or

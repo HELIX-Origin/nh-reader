@@ -27,16 +27,25 @@
 
 ## 🔥 Active Workstreams
 
-_No active workstream. Select the next item from the backlog below and move it here before starting._
+### `[nh-reader]` — Sprint 2: Tauri v2 Performance Optimization & Browse/Navigation Modernization
+- [x] `[nh-reader]` **SQLite Index Optimization & High-Performance Pragmas**: Enabled WAL journal mode, NORMAL sync, memory temp store, 64MB page cache, 256MB mmap, and `idx_kv_updated_at` in `db.rs`.
+- [x] `[nh-reader]` **Download & ZIP/CBZ Streaming Speedup**: Switched gallery download archive writer to `Stored` compression in `service.rs` (skipping redundant JPEG/WebP deflation) and cached archive page counts in `commands.rs` to eliminate heavy synchronous disk reads.
+- [x] `[nh-reader]` **Svelte 5 Grid Virtualization & Lazy Rendering**: Added keyed `each (g.id)` to `GalleryGrid.svelte`, async image decoding & low fetchpriority to `CoverImage.svelte` and `ReaderImage.svelte`, and bounded LRU `blobCache` in `image.ts` to prevent memory leaks.
+- [x] `[nh-reader]` **Blacklist Tag Button-Chip Grid & Alphabetical Sorting**: Upgraded tag picker in `BlacklistView.svelte` to a responsive uniform grid with squared button chips (`border-radius: var(--radius-sm, 6px)`), distinct tactile surface shading (`var(--surface-hover)`), wide layout (`max-width: 1400px`), and default alphabetical (`A–Z`) ordering with an interactive sort toggle.
+- [x] `[nh-reader]` **Modular SCSS Architecture Migration**: Installed `sass-embedded`, migrated flat 2,300-line `app.css` into modular SCSS under `src/styles/` (`_tokens.scss`, `_mixins.scss`, `_tags.scss`, `_base.scss`, `_components.scss`, `_layout.scss`, and `views/*`), and mapped `$styles` path alias.
+- [x] `[nh-reader]` **Browse Tab Navigation & Popularity Sorting Pivot**: Retired dedicated `/popular` tab in favor of a unified "Browse" tab (`/`) with a `compass` icon, integrated popularity sorting options (`Newest`, `Popular`, `Popular This Week`, `Popular Today`), automatic redirect from legacy `/popular`, and a "Random Doujin" button strictly respecting active blacklist filters.
+- [x] `[nh-reader]` **Zero-Warning Gate**: Verified 0 errors and 0 warnings under `svelte-check`, `vite build`, and 7/7 tests passed in `cargo test`.
 
-Workstream flow:
-
-```mermaid
-flowchart LR
-    backlog[Backlog item] --> active[Active workstream]
-    active --> verify[Verification gate]
-    verify --> done[Completed + archived]
-```
+### `[nh-reader]` — v0.8.0 Release Preparation
+- [x] `[nh-reader]` **i18n Parity**: Added the 13 new Browse/Back keys to all 17 community locale packs (`check:i18n` parity restored).
+- [x] `[nh-reader]` **Version Bump to v0.8.0**: `package.json`, `package-lock.json`, `src-tauri/Cargo.toml`, `src-tauri/Cargo.lock`, `src-tauri/tauri.conf.json`, `CITATION.cff`, `PRIVACY.md`, `TOS.md`.
+- [x] `[nh-reader]` **Detailed `docs/` Folder**: Extensive, self-contained user and developer documentation (`docs/README.md`, 11 user guides, 10 developer guides), verified against the code, theme-neutral, with no references to retired hub sites.
+- [x] `[nh-reader]` **Retired Hub Link Cleanup**: Replaced retired documentation/wiki hub links in `README.md`, `SUPPORT.md`, `CONTRIBUTING.md`, `CITATION.cff`, and `.github/ISSUE_TEMPLATE/config.yml` with links to `docs/`.
+- [x] `[nh-reader]` **Stale Documentation Corrections**: Aligned `CONTRIBUTING.md` and project-local conventions with the SCSS architecture (`src/styles/`) and the actual `src-tauri/src` module list.
+- [x] `[nh-reader]` **Release Workflow Audit**: Removed hardcoded fallback tag in `.github/workflows/release.yml`, added `verify` quality gate, verified cross-platform matrix packaging for Windows, macOS, Linux.
+- [x] `[nh-reader]` **Release Documents**: `CHANGELOG.md` v0.8.0 entry, `.github/releases/v0.8.0.md`, and `.github/discussions/announcements/v0.8.0.md`.
+- [ ] `[nh-reader]` **Commit & Push**: Single authorized commit pushed to `origin/main` and verified with `git ls-remote`.
+- [ ] `[nh-reader]` **Tag & GitHub Release `v0.8.0`**: Tag `v0.8.0` and release creation to trigger cross-platform matrix installer attachments.
 
 ---
 
@@ -47,12 +56,6 @@ flowchart LR
 - [ ] `[nh-reader]` **Multi-Profile Partitioning**: Allow switching between isolated library/blacklist profile stores.
 - [ ] `[nh-reader]` **Background Update Inspection**: Non-intrusive GitHub release notification check on app launch.
 - [ ] `[nh-reader]` **Unified Scripts Standard**: Ensure all maintenance scripts follow canonical `main:sub:option` naming and `.mjs` conventions.
-
-### `[nh-reader]` — Milestone M14: Native C++ Windows Architecture & Scope Reduction (Future)
-- [ ] `[nh-reader]` **Architecture Planning & Proof-of-Concept**: Plan native C++20 Win32 desktop architecture with Direct2D / WinUI 3 canvas.
-- [ ] `[nh-reader]` **Scope Reduction**: Purely a Windows application; eliminate Android and POSIX targets for zero-overhead performance.
-- [ ] `[nh-reader]` **Native Networking & Cache**: Pure C++ WinHTTP/curl and SQLite local cache pipeline with image cache management.
-- [ ] `[nh-reader]` **Reader UI**: Native hardware-accelerated continuous vertical and paged reader canvas.
 
 ---
 

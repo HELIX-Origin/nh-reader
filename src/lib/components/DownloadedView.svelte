@@ -83,8 +83,8 @@
 			<h3>{locale.t('library.emptyDownloaded')}</h3>
 			<p class="faint">{locale.t('library.emptyDownloadedHint')}</p>
 			<div class="empty-actions">
-				<a class="btn btn-primary" href="/popular">
-					<Icon name="flame" size={15} />
+				<a class="btn btn-primary" href="/?sort=popular">
+					<Icon name="compass" size={15} />
 					<span>{locale.t('library.browsePopular')}</span>
 				</a>
 				<a class="btn btn-ghost" href="/downloads">

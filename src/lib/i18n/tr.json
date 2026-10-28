@@ -10,6 +10,7 @@
 		"version": "Sürüm"
 	},
 	"nav": {
+		"browse": "Göz at",
 		"latest": "En Yeniler",
 		"popular": "Popüler",
 		"library": "Kütüphane",
@@ -263,6 +264,19 @@
 		"emptyTitle": "Şu anda trend olan bir şey yok",
 		"emptyDesc": "Kısa süre sonra tekrar kontrol edin."
 	},
+	"browse": {
+		"title": "Göz at",
+		"subtitle": "Yeni yüklenen ve popüler doujinler",
+		"loading": "Galeriler yükleniyor…",
+		"sortNewest": "En yeni",
+		"sortPopular": "Popüler",
+		"sortPopularWeek": "Bu haftanın popülerleri",
+		"sortPopularToday": "Bugünün popülerleri",
+		"random": "Rastgele",
+		"randomTooltip": "Rastgele bir doujin aç (kara listeye uyar)",
+		"findingRandom": "Rastgele aranıyor…",
+		"noRandomFound": "Engellenmemiş doujin bulunamadı. Tekrar deneyin."
+	},
 	"latest": {
 		"title": "En Yeniler",
 		"subtitle": "Son yüklenen galeriler",
@@ -305,6 +319,7 @@
 		"emptyFavoritesHint": "İndirdiğiniz favori galeriler çevrimdışı okuma için burada görünecektir."
 	},
 	"common": {
+		"back": "Geri",
 		"somethingWentWrong": "Bir şeyler ters gitti",
 		"retry": "Tekrar dene",
 		"page": "Sayfa",

@@ -165,6 +165,48 @@ export const api = {
 			backend.fetchTagsByType(tagType, sort, page, perPage),
 		);
 	},
+
+	async randomGallery(): Promise<GalleryListItem | null> {
+		try {
+			const randomId = await backend.fetchRandomId();
+			if (randomId) {
+				const detail = await this.gallery(randomId);
+				const item: GalleryListItem = {
+					id: detail.id,
+					media_id: detail.media_id,
+					english_title: detail.title.english || detail.title.pretty || 'Untitled',
+					japanese_title: detail.title.japanese,
+					thumbnail: detail.thumbnail.path,
+					thumbnail_width: detail.thumbnail.width,
+					thumbnail_height: detail.thumbnail.height,
+					num_pages: detail.num_pages,
+					num_favorites: detail.num_favorites,
+					tag_ids: detail.tags.map((t) => t.id),
+					blacklisted: false,
+				};
+				if (!matchesBlacklist(item)) {
+					return item;
+				}
+			}
+		} catch {
+			// Fall through to catalog random selection
+		}
+
+		const maxPages = 2000;
+		for (let attempt = 0; attempt < 5; attempt++) {
+			const randomPage = Math.floor(Math.random() * maxPages) + 1;
+			try {
+				const res = await this.newGalleries(randomPage);
+				const unblocked = res.result.filter((g) => !matchesBlacklist(g));
+				if (unblocked.length > 0) {
+					return unblocked[Math.floor(Math.random() * unblocked.length)];
+				}
+			} catch {
+				// Retry with another page
+			}
+		}
+		return null;
+	},
 };
 
 function perPageForSearch(): number {

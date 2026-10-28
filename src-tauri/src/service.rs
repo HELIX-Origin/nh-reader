@@ -317,7 +317,7 @@ impl Worker {
 
         let file = std::fs::File::create(&tmp).map_err(|e| e.to_string())?;
         let options = zip::write::SimpleFileOptions::default()
-            .compression_method(zip::CompressionMethod::Deflated);
+            .compression_method(zip::CompressionMethod::Stored);
         let mut writer = zip::ZipWriter::new(file);
 
         let width = pages.len().to_string().len();

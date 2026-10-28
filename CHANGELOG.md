@@ -5,7 +5,29 @@ top; the current development state lives under `Unreleased`.
 
 ## Unreleased
 
-## [v0.7.5](https://github.com/HELIX-Origin/NH-Reader/releases/tag/v0.7.5)
+## [v0.8.0](https://github.com/HELIX-Origin/nh-reader/releases/tag/v0.8.0)
+
+**Release date:** 2026-10-28
+
+### ✨ Added
+* **Browse & Navigation Pivot:** Renamed "Latest" tab to "Browse" with a compass icon across navigation docks and layouts. Added an interactive sorting selector directly into the Browse header (`Newest`, `Popular (All Time)`, `Popular This Week`, `Popular Today`) that updates URL parameters. Retired the redundant `/popular` bottom navigation tab in favor of an automatic client redirect to `/?sort=popular`.
+* **Random Doujin Discovery:** Added a "Random Doujin" action in the Browse toolbar utilizing backend `fetch_random_id`, complete with automatic multi-retry blacklist filtering so randomized works strictly honor user exclusions.
+* **Origin-Listing "Up" Navigation:** Relocated the Back button into the `.actions` row on the gallery details page, aligning its size with action buttons. Implemented intelligent origin tracking via SvelteKit `afterNavigate` in `src/lib/stores/navigation.svelte.ts` so the button always navigates back to the originating listing (Browse, Search, Favorites, Downloads) while preserving pagination, queries, and scroll position.
+* **Comprehensive Documentation (`docs/`):** Authored an extensive, self-contained documentation suite containing 11 user guides (`getting-started`, `installation`, `browsing-and-search`, `blacklist`, `reader`, `library-favorites-history`, `downloads`, `account-and-api-key`, `settings`, `privacy-and-data`, `troubleshooting`) and 10 developer guides (`architecture`, `frontend`, `backend`, `data-and-storage`, `nhentai-api`, `i18n`, `development-setup`, `build-and-release`, `testing`, `conventions`), replacing references to retired external hubs.
+
+### 🐛 Fixes
+* **Reader Header Gradient & Page Legibility:** Eliminated the top overlay gradient in `_reader.scss` that caused rendered manga pages to become illegible. Re-anchored the reader container below the persistent top title bar (`top: 48px`, `z-index: 100`), ensuring the window header remains accessible while pages stay strictly within app viewport bounds.
+* **Gallery Details Frame Padding:** Restored global `.page` container padding in `_base.scss` (`padding: 20px 28px 48px; max-width: 1500px`), preventing action buttons and cover art from clipping against window borders.
+* **Pagination Chevron Alignment:** Aligned chevron SVGs vertically in `Pager.svelte` and applied the universal button-chip styling.
+* **Reader Navigation Dock Occlusion:** Conditionally hidden the bottom navigation dock during active reading sessions to maximize vertical screen real estate.
+
+### 🌐 Internationalization
+* **Complete Locale Parity:** Added 13 new translation keys (`nav.browse`, `browse.*`, `common.back`) across all 17 supported community locale packs (`ar`, `de`, `es`, `fr`, `id`, `it`, `ja`, `ko`, `nl`, `pl`, `pt`, `ru`, `th`, `tr`, `vi`, `zh-CN`, `zh-TW`). Verified 100% key parity (292/292 keys) via `npm run check:i18n`.
+
+### 🚀 CI & Packaging
+* **Cross-Platform Release Automation:** Updated `.github/workflows/release.yml` with a preliminary `verify` job (`npm ci`, `npm run check`, `npm run check:i18n`, `npm run build`), dynamic release tag fallback from `package.json`, and cross-platform matrix packaging for Windows (NSIS `.exe` + `.msi`), macOS (Universal `.dmg`), and Linux (`.deb` + `.AppImage`).
+
+## [v0.7.5](https://github.com/HELIX-Origin/nh-reader/releases/tag/v0.7.5)
 
 **Release date:** 2026-10-07
 

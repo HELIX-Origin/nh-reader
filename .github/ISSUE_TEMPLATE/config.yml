@@ -1,10 +1,10 @@
 blank_issues_enabled: false
 contact_links:
-  - name: 📖 NH Reader Documentation
-    url: https://docs.helix-origin.club/nh-reader/
+  - name: 📖 NH Reader User Guide
+    url: https://github.com/HELIX-Origin/nh-reader/blob/main/docs/user/getting-started.md
     about: Read the user guide, search/filter reference, and troubleshooting documentation.
-  - name: 🧠 Technical Wiki
-    url: https://wiki.helix-origin.club/nh-reader/
+  - name: 🧠 Developer Guide
+    url: https://github.com/HELIX-Origin/nh-reader/blob/main/docs/developer/architecture.md
     about: Architecture, SQLite schema, background services, and API integration notes.
   - name: 💬 GitHub Discussions
     url: https://github.com/HELIX-Origin/nh-reader/discussions

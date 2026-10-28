@@ -50,6 +50,11 @@ pub async fn fetch_popular(client: State<'_, NhDesktopClient>, db: State<'_, Db>
 }
 
 #[tauri::command]
+pub async fn fetch_random_id(client: State<'_, NhDesktopClient>, db: State<'_, Db>) -> Result<u64, String> {
+    client.fetch_random_id(optional_key(&db).as_deref()).await.map_err(|e| e.to_string())
+}
+
+#[tauri::command]
 pub async fn fetch_tagged(client: State<'_, NhDesktopClient>, db: State<'_, Db>, tag_id: u64, sort: Option<String>, page: Option<u32>, per_page: Option<u32>) -> Result<GalleryList, String> {
     client
         .tagged(optional_key(&db).as_deref(), tag_id, sort.as_deref().unwrap_or("date"), page.unwrap_or(1), per_page.unwrap_or(28))
@@ -466,22 +471,31 @@ pub fn get_downloaded_galleries(app: tauri::AppHandle, db: State<'_, Db>) -> Res
             format!("Gallery #{id}")
         };
 
-        let total_pages = if let Ok(file) = std::fs::File::open(&path) {
-            if let Ok(mut archive) = zip::ZipArchive::new(file) {
-                let mut count = 0;
-                for i in 0..archive.len() {
-                    if let Ok(f) = archive.by_index(i) {
-                        if is_archive_image_entry(f.name()) {
-                            count += 1;
+        let page_cache_key = format!("cache:archive_pages:{id}:{file_size}");
+        let total_pages = if let Ok(Some(cached_count_str)) = db.get(&page_cache_key) {
+            cached_count_str.parse::<usize>().unwrap_or(0)
+        } else {
+            let count = if let Ok(file) = std::fs::File::open(&path) {
+                if let Ok(mut archive) = zip::ZipArchive::new(file) {
+                    let mut c = 0;
+                    for i in 0..archive.len() {
+                        if let Ok(f) = archive.by_index(i) {
+                            if is_archive_image_entry(f.name()) {
+                                c += 1;
+                            }
                         }
                     }
+                    c
+                } else {
+                    0
                 }
-                count
             } else {
                 0
+            };
+            if count > 0 {
+                let _ = db.set(&page_cache_key, &count.to_string());
             }
-        } else {
-            0
+            count
         };
 
         items.push(DownloadedGalleryItem {

@@ -34,11 +34,17 @@ impl Db {
         }
         let conn = Connection::open(path)?;
         conn.execute_batch(
-            "CREATE TABLE IF NOT EXISTS kv (
+            "PRAGMA journal_mode = WAL;
+            PRAGMA synchronous = NORMAL;
+            PRAGMA temp_store = MEMORY;
+            PRAGMA cache_size = -64000;
+            PRAGMA mmap_size = 268435456;
+            CREATE TABLE IF NOT EXISTS kv (
                 key TEXT PRIMARY KEY,
                 value TEXT NOT NULL,
                 updated_at INTEGER NOT NULL
             );
+            CREATE INDEX IF NOT EXISTS idx_kv_updated_at ON kv(updated_at);
             CREATE TABLE IF NOT EXISTS api_key (
                 id INTEGER PRIMARY KEY CHECK (id = 1),
                 key TEXT NOT NULL

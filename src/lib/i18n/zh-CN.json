@@ -10,6 +10,7 @@
 		"version": "版本"
 	},
 	"nav": {
+		"browse": "浏览",
 		"latest": "最新",
 		"popular": "热门",
 		"library": "书架",
@@ -263,6 +264,19 @@
 		"emptyTitle": "当前暂无趋势画册",
 		"emptyDesc": "稍后再来看看吧。"
 	},
+	"browse": {
+		"title": "浏览",
+		"subtitle": "最新上传与热门本子",
+		"loading": "正在加载图库…",
+		"sortNewest": "最新",
+		"sortPopular": "热门",
+		"sortPopularWeek": "本周热门",
+		"sortPopularToday": "今日热门",
+		"random": "随机",
+		"randomTooltip": "随机打开一本（遵守黑名单）",
+		"findingRandom": "正在随机查找…",
+		"noRandomFound": "未找到未被屏蔽的本子，请重试。"
+	},
 	"latest": {
 		"title": "最新",
 		"subtitle": "最新上传画册",
@@ -305,6 +319,7 @@
 		"emptyFavoritesHint": "已加入收藏并且下载完成的画册将出现在这里，方便离线阅读。"
 	},
 	"common": {
+		"back": "返回",
 		"somethingWentWrong": "发生错误",
 		"retry": "重试",
 		"page": "页码",

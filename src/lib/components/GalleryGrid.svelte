@@ -50,7 +50,7 @@
 		bind:clientWidth={containerWidth}
 		style={s.dynamicScaling ? `--grid-cols: ${cols};` : undefined}
 	>
-		{#each displayed as g}
+		{#each displayed as g (g.id)}
 			<GalleryCard gallery={g} />
 		{/each}
 	</div>

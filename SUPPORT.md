@@ -4,11 +4,10 @@ Looking for help with **NH Reader** (`nh-reader`)? Here is where to go.
 
 ## 📖 Start with the docs
 
-- 📖 **Documentation**: [https://docs.helix-origin.club/nh-reader](https://docs.helix-origin.club/nh-reader)
-  — installation, setup, feature guides, and usage.
-
-- 🧠 **Technical Wiki**: [https://wiki.helix-origin.club/nh-reader](https://wiki.helix-origin.club/nh-reader)
-  — architecture, internals, and developer references.
+- 📖 **User guide**: [docs/user/getting-started.md](./docs/user/getting-started.md) — installation, setup, feature guides, and usage.
+- 🛠️ **Troubleshooting**: [docs/user/troubleshooting.md](./docs/user/troubleshooting.md) — common errors and fixes.
+- 🧠 **Developer guide**: [docs/developer/architecture.md](./docs/developer/architecture.md) — architecture, internals, and developer references.
+- 🗂️ **Documentation index**: [docs/README.md](./docs/README.md)
 
 ## 💬 Community
 
@@ -27,10 +26,5 @@ cannot load content. Check the site directly before opening an issue.
 
 For security vulnerabilities, **do not** open a public issue — follow [SECURITY.md](./SECURITY.md).
 
-## 🌐 Organization
-
-- 🌐 **Portal**: [https://www.helix-origin.club](https://www.helix-origin.club)
-
 Before opening an issue, please search existing issues and discussions — your question may already
 be answered.
-

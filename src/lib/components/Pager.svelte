@@ -10,15 +10,27 @@
 </script>
 
 <nav class="pager" data-scope="pager" aria-label="Pagination">
-	<button class="btn" disabled={atStart} onclick={() => ongoto(page - 1)}>
-		<Icon name="chevron-left" size={15} />
-		{locale.t('common.prev')}
+	<button
+		type="button"
+		class="btn pager-btn"
+		disabled={atStart}
+		onclick={() => ongoto(page - 1)}
+		aria-label={locale.t('common.prev')}
+	>
+		<Icon name="chevron-left" size={16} />
+		<span class="btn-text">{locale.t('common.prev')}</span>
 	</button>
 	<span class="page-info">
 		{locale.t('common.page')} <b>{page}</b> {locale.t('common.of')} <b>{numPages > 0 ? numPages : 1}</b>
 	</span>
-	<button class="btn" disabled={atEnd} onclick={() => ongoto(page + 1)}>
-		{locale.t('common.next')}
-		<Icon name="chevron-right" size={15} />
+	<button
+		type="button"
+		class="btn pager-btn"
+		disabled={atEnd}
+		onclick={() => ongoto(page + 1)}
+		aria-label={locale.t('common.next')}
+	>
+		<span class="btn-text">{locale.t('common.next')}</span>
+		<Icon name="chevron-right" size={16} />
 	</button>
 </nav>

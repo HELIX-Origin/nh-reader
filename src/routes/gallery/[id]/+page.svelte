@@ -1,5 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import { goto } from '$app/navigation';
+	import { returnToListing } from '$lib/stores/navigation.svelte';
 	import { api } from '$lib/api';
 	import { formatCount, formatDate, relativeDate } from '$lib/format';
 	import type { GalleryDetail, GalleryListItem } from '$lib/types';
@@ -107,6 +109,10 @@
 		);
 	}
 
+	function goBack() {
+		returnToListing();
+	}
+
 	const grouped = $derived.by(() => {
 		if (!gallery) return [];
 		const order = ['parody', 'character', 'artist', 'group', 'language', 'category', 'tag'];
@@ -124,8 +130,30 @@
 
 <div class="page" data-scope="page-gallery">
 	{#if loading && !gallery}
+		<div class="gallery-fallback-header">
+			<button
+				type="button"
+				class="btn btn-secondary btn-back"
+				onclick={goBack}
+				title={locale.t('common.back')}
+			>
+				<Icon name="arrow-left" size={15} />
+				<span class="btn-text">{locale.t('common.back')}</span>
+			</button>
+		</div>
 		<Loader label={locale.t('gallery.loading')} />
 	{:else if error && !gallery}
+		<div class="gallery-fallback-header">
+			<button
+				type="button"
+				class="btn btn-secondary btn-back"
+				onclick={goBack}
+				title={locale.t('common.back')}
+			>
+				<Icon name="arrow-left" size={15} />
+				<span class="btn-text">{locale.t('common.back')}</span>
+			</button>
+		</div>
 		<ErrorNotice message={error} onretry={() => tick++} />
 	{:else if gallery}
 		<div class="detail">
@@ -170,6 +198,15 @@
 				</div>
 
 				<div class="actions">
+					<button
+						type="button"
+						class="btn btn-secondary btn-back"
+						onclick={goBack}
+						title={locale.t('common.back')}
+					>
+						<Icon name="arrow-left" size={15} />
+						<span class="btn-text">{locale.t('common.back')}</span>
+					</button>
 					<a class="btn btn-primary" href={`/gallery/${id}/reader`}>
 						<Icon name="book" size={15} />
 						{locale.t('gallery.openReader')}

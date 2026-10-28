@@ -248,6 +248,30 @@ impl NhDesktopClient {
         self.request(key, reqwest::Method::GET, "/galleries/popular", &[], None).await
     }
 
+    pub async fn fetch_random_id(&self, key: Option<&str>) -> Result<u64, AppError> {
+        self.pace().await;
+        let mut req = self.http.get("https://nhentai.net/random/");
+        if let Some(key) = key {
+            let header_val = if key.starts_with("User ") || key.starts_with("Key ") {
+                key.to_string()
+            } else if key.contains('.') || key.len() > 64 {
+                format!("User {key}")
+            } else {
+                format!("Key {key}")
+            };
+            req = req.header("Authorization", header_val);
+        }
+        let resp = req.send().await.map_err(AppError::Http)?;
+        let final_url = resp.url().as_str();
+        if let Some(rest) = final_url.split("/g/").nth(1) {
+            let id_str = rest.trim_matches('/');
+            if let Ok(id) = id_str.parse::<u64>() {
+                return Ok(id);
+            }
+        }
+        Err(AppError::InvalidInput("Random gallery redirect not found".to_string()))
+    }
+
     pub async fn gallery(&self, key: Option<&str>, id: u64, include: &str) -> Result<GalleryDetail, AppError> {
         let path = format!("/galleries/{id}");
         let params: &[(&str, String)] = if include.is_empty() {

@@ -10,6 +10,7 @@
 		"version": "버전"
 	},
 	"nav": {
+		"browse": "둘러보기",
 		"latest": "최신",
 		"popular": "인기",
 		"library": "보관함",
@@ -263,6 +264,19 @@
 		"emptyTitle": "현재 인기 작품이 없습니다",
 		"emptyDesc": "잠시 후 다시 확인해 주세요."
 	},
+	"browse": {
+		"title": "둘러보기",
+		"subtitle": "최근 업로드된 작품과 인기 작품",
+		"loading": "갤러리 불러오는 중…",
+		"sortNewest": "최신",
+		"sortPopular": "인기",
+		"sortPopularWeek": "이번 주 인기",
+		"sortPopularToday": "오늘의 인기",
+		"random": "무작위",
+		"randomTooltip": "무작위 작품 열기 (블랙리스트 적용)",
+		"findingRandom": "무작위 검색 중…",
+		"noRandomFound": "차단되지 않은 작품을 찾지 못했습니다. 다시 시도하세요."
+	},
 	"latest": {
 		"title": "최신",
 		"subtitle": "최근 업로드된 작품",
@@ -305,6 +319,7 @@
 		"emptyFavoritesHint": "즐겨찾기에 등록하고 다운로드한 작품이 여기에 표시되어 오프라인으로 읽을 수 있습니다."
 	},
 	"common": {
+		"back": "뒤로",
 		"somethingWentWrong": "문제가 발생했습니다",
 		"retry": "재시도",
 		"page": "페이지",

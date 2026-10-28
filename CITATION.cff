@@ -16,8 +16,8 @@ authors:
 repository-code: 'https://github.com/HELIX-Origin/nh-reader'
 url: 'https://docs.helix-origin.club/nh-reader/'
 license: MIT
-version: 0.7.5
-date-released: '2026-10-07'
+version: 0.8.0
+date-released: '2026-10-28'
 keywords:
   - nhentai
   - nhentai-client

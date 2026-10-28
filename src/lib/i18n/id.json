@@ -10,6 +10,7 @@
 		"version": "Versi"
 	},
 	"nav": {
+		"browse": "Jelajahi",
 		"latest": "Terbaru",
 		"popular": "Populer",
 		"library": "Pustaka",
@@ -263,6 +264,19 @@
 		"emptyTitle": "Tidak ada yang sedang tren saat ini",
 		"emptyDesc": "Periksa kembali nanti."
 	},
+	"browse": {
+		"title": "Jelajahi",
+		"subtitle": "Doujin yang baru diunggah dan populer",
+		"loading": "Memuat galeri…",
+		"sortNewest": "Terbaru",
+		"sortPopular": "Populer",
+		"sortPopularWeek": "Populer minggu ini",
+		"sortPopularToday": "Populer hari ini",
+		"random": "Acak",
+		"randomTooltip": "Buka doujin acak (mematuhi daftar hitam)",
+		"findingRandom": "Mencari acak…",
+		"noRandomFound": "Tidak ada doujin yang tidak diblokir. Coba lagi."
+	},
 	"latest": {
 		"title": "Terbaru",
 		"subtitle": "Galeri yang baru diunggah",
@@ -305,6 +319,7 @@
 		"emptyFavoritesHint": "Galeri favorit yang telah Anda unduh akan muncul di sini untuk dibaca secara offline."
 	},
 	"common": {
+		"back": "Kembali",
 		"somethingWentWrong": "Terjadi kesalahan",
 		"retry": "Coba lagi",
 		"page": "Halaman",

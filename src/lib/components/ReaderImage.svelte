@@ -66,6 +66,6 @@
 	{#if failed}
 		<span class="ph"><Icon name="image" size={26} /></span>
 	{:else}
-		<img src={currentSrc} alt={`Page ${page.number}`} draggable="false" onerror={onError} />
+		<img src={currentSrc} alt={`Page ${page.number}`} draggable="false" decoding="async" onerror={onError} />
 	{/if}
 </div>

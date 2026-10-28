@@ -10,6 +10,7 @@
 		"version": "Versie"
 	},
 	"nav": {
+		"browse": "Bladeren",
 		"latest": "Nieuwste",
 		"popular": "Populair",
 		"library": "Bibliotheek",
@@ -263,6 +264,19 @@
 		"emptyTitle": "Momenteel niets populairs",
 		"emptyDesc": "Kom snel terug."
 	},
+	"browse": {
+		"title": "Bladeren",
+		"subtitle": "Recent geüploade en populaire doujins",
+		"loading": "Galerijen laden…",
+		"sortNewest": "Nieuwste",
+		"sortPopular": "Populair",
+		"sortPopularWeek": "Populair deze week",
+		"sortPopularToday": "Populair vandaag",
+		"random": "Willekeurig",
+		"randomTooltip": "Open een willekeurige doujin (respecteert de zwarte lijst)",
+		"findingRandom": "Willekeurige zoeken…",
+		"noRandomFound": "Geen niet-geblokkeerde doujins gevonden. Probeer het opnieuw."
+	},
 	"latest": {
 		"title": "Nieuwste",
 		"subtitle": "Recent geüploade galerijen",
@@ -305,6 +319,7 @@
 		"emptyFavoritesHint": "Gefavoriete galerijen die je hebt gedownload verschijnen hier voor offline lezen."
 	},
 	"common": {
+		"back": "Terug",
 		"somethingWentWrong": "Er is iets misgegaan",
 		"retry": "Opnieuw proberen",
 		"page": "Pagina",

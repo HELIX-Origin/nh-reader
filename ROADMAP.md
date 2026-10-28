@@ -20,10 +20,10 @@
 
 ## 🔭 Vision & Positioning Principles
 
-1. **Core Value Proposition**: A lightweight, modern client for nhentai.net with fast search, powerful filtering, a global blacklist, and a private local-first architecture. Currently built with Tauri v2; future roadmap schedules conversion into a pure native C++ Windows application.
+1. **Core Value Proposition**: A lightweight, modern, high-performance desktop client for nhentai.net built with Tauri v2 and Svelte 5, featuring fast search, zero-empty-space blacklist filtering, custom Fluent/System design, and a private local-first architecture.
 2. **Design Principles**:
    - **Local-first privacy**: no accounts, telemetry, cloud sync, or third-party trackers; user data stays in local SQLite.
-   - **Fast and fluent browsing**: responsive grids, streaming search, and a paged reader.
+   - **Fast and fluent browsing**: responsive grids, streaming search, and a high-performance reader.
    - **Respectful integration**: throttle upstream requests and never hammer nhentai.net.
 3. **Non-Goals & Boundaries**:
    - Not a content host or proxy service; all gallery data originates from nhentai.net.
@@ -36,33 +36,25 @@
 | # | Milestone | Status | Release / Target | Focus |
 |---|---|---|---|---|
 | **M1–M12** | `[nh-reader]` Core client & localization | ✅ Shipped | v0.1.0 – v0.7.5 | Foundation, browse, search, blacklist, SQLite cache, reader, storage budgets, 18-language i18n, title bar, NSIS installer, signing |
-| **M13** | `[nh-reader]` Post-v0.7.5 enhancements | ⏳ Planned | v0.8.0 | Tag analytics, multi-profile partitions, background update inspection, unified scripts |
-| **M14** | `[nh-reader]` Native C++ Windows Architecture & Scope Reduction | 🔮 Future | v1.0.0 | Convert into pure native C++ Windows desktop application; drop cross-platform/Android overhead for zero-overhead native execution |
+| **M13** | `[nh-reader]` Tauri v2 Performance Optimization, Browse Modernization & Native Docs | ✅ Shipped | v0.8.0 | Memory & cache optimizations, virtualized grid rendering, non-blocking image prefetching, zip/cbz pipeline speedups, browse navigation pivot, reader polish, and comprehensive native `docs/` |
+| **M14** | `[nh-reader]` Advanced Analytics & Partitions | ⬜ Planned | v0.9.0 | Local reading history tag frequency analytics, recommendations, and multi-profile library partitions |
 
 The delivery arc from shipped milestones to planned work:
 
 ```mermaid
 flowchart LR
-    shipped[M1–M12 shipped] --> m13[M13 planned]
-    m13 --> m14["M14 planned: Native C++ Windows pivot"]
-    m14 --> win32[Pure Windows native execution]
-    m14 --> drop_android[Eliminate cross-platform overhead]
+    shipped[M1–M13 shipped] --> m14[M14: Advanced Analytics & Partitions]
+    m14 --> v090[v0.9.0 Release]
 ```
 
 ---
 
 ## 🔮 Planned & Future Milestones
 
-### `[nh-reader]` — Milestone M13: Post-v0.7.5 Enhancements
-- ⏳ **Tag Frequency Analytics**: local reading-history analytics for top tags, artists, and languages.
-- ⏳ **Multi-Profile Partitioning**: switch between isolated library/blacklist profile stores.
-- ⏳ **Background Update Inspection**: non-intrusive GitHub release notification on app launch.
-- ⏳ **Unified Scripts Standard**: canonical `main:sub:option` naming and `.mjs` maintenance scripts.
-
-### `[nh-reader]` — Milestone M14: Native C++ Windows Architecture & Scope Reduction (Future)
-- 🔮 **Pure Native C++ Engine**: Complete rewrite into native C++20 Win32 desktop application, leveraging Direct2D / WinUI 3 for an ultra-responsive, zero-webview reader.
-- 🔮 **Windows-Only Scope Reduction**: Eliminate Android and POSIX target maintenance, focusing 100% of optimizations on Windows 11 performance, low memory footprint, and native keyboard/mouse navigation.
-- 🔮 **Direct SQLite & Network Pipeline**: Native C++ WinHTTP/curl and SQLite engine with image caching pipeline.
+### `[nh-reader]` — Milestone M14: Advanced Analytics & Partitions
+- ⬜ **Tag Frequency Analytics**: Local reading-history analytics showing top consumed tags, artists, and languages.
+- ⬜ **Multi-Profile Partitioning**: Allow switching between isolated library/blacklist profile stores.
+- ⬜ **Background Update Inspection**: Non-intrusive GitHub release notification check on app launch.
 
 ---
 

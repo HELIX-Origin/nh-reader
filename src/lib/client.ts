@@ -27,6 +27,7 @@ export const backend = {
 	fetchNew: (page?: number, perPage?: number) =>
 		call<GalleryList>('fetch_new', { page, perPage }),
 	fetchPopular: () => call<GalleryListItem[]>('fetch_popular'),
+	fetchRandomId: () => call<number>('fetch_random_id'),
 	fetchTagged: (tagId: number, sort?: string, page?: number, perPage?: number) =>
 		call<GalleryList>('fetch_tagged', { tagId, sort, page, perPage }),
 	searchGalleries: (query: string, sort?: string, page?: number) =>

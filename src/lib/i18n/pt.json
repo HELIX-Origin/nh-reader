@@ -10,6 +10,7 @@
 		"version": "Versão"
 	},
 	"nav": {
+		"browse": "Explorar",
 		"latest": "Recentes",
 		"popular": "Populares",
 		"library": "Biblioteca",
@@ -263,6 +264,19 @@
 		"emptyTitle": "Sem tendências de momento",
 		"emptyDesc": "Volte em breve."
 	},
+	"browse": {
+		"title": "Explorar",
+		"subtitle": "Doujins recém-enviados e populares",
+		"loading": "Carregando galerias…",
+		"sortNewest": "Mais recentes",
+		"sortPopular": "Populares",
+		"sortPopularWeek": "Populares esta semana",
+		"sortPopularToday": "Populares hoje",
+		"random": "Aleatório",
+		"randomTooltip": "Abrir um doujin aleatório (respeita a lista negra)",
+		"findingRandom": "Procurando aleatório…",
+		"noRandomFound": "Nenhum doujin desbloqueado encontrado. Tente novamente."
+	},
 	"latest": {
 		"title": "Recentes",
 		"subtitle": "Galerias enviadas recentemente",
@@ -305,6 +319,7 @@
 		"emptyFavoritesHint": "As galerias adicionadas aos favoritos que foram transferidas vão aparecer aqui para leitura offline."
 	},
 	"common": {
+		"back": "Voltar",
 		"somethingWentWrong": "Algo correu mal",
 		"retry": "Tentar novamente",
 		"page": "Página",

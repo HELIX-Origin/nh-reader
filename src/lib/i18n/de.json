@@ -10,6 +10,7 @@
 		"version": "Version"
 	},
 	"nav": {
+		"browse": "Durchsuchen",
 		"latest": "Neueste",
 		"popular": "Beliebt",
 		"library": "Bibliothek",
@@ -263,6 +264,19 @@
 		"emptyTitle": "Derzeit keine Trends",
 		"emptyDesc": "Schau bald wieder vorbei."
 	},
+	"browse": {
+		"title": "Durchsuchen",
+		"subtitle": "Neu hochgeladene und beliebte Doujins",
+		"loading": "Galerien werden geladen…",
+		"sortNewest": "Neueste",
+		"sortPopular": "Beliebt",
+		"sortPopularWeek": "Beliebt diese Woche",
+		"sortPopularToday": "Beliebt heute",
+		"random": "Zufall",
+		"randomTooltip": "Zufälligen Doujin öffnen (beachtet die Blacklist)",
+		"findingRandom": "Zufälligen Doujin suchen…",
+		"noRandomFound": "Keine nicht blockierten Doujins gefunden. Versuche es erneut."
+	},
 	"latest": {
 		"title": "Neueste",
 		"subtitle": "Kürzlich hochgeladene Galerien",
@@ -305,6 +319,7 @@
 		"emptyFavoritesHint": "Zu Favoriten hinzugefügte Galerien, die du heruntergeladen hast, erscheinen hier zum Offline-Lesen."
 	},
 	"common": {
+		"back": "Zurück",
 		"somethingWentWrong": "Etwas ist schiefgelaufen",
 		"retry": "Wiederholen",
 		"page": "Seite",

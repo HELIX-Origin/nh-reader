@@ -37,7 +37,7 @@ If you have not read it yet, the [`README.md`](./README.md) provides the high-le
 - **Report bugs** via [GitHub Issues](https://github.com/HELIX-Origin/nh-reader/issues) using the bug-report template.
 - **Propose features** via [GitHub Issues](https://github.com/HELIX-Origin/nh-reader/issues) using the feature-proposal template.
 - **Contribute translations** for your language (100% drop-in, see [Contributing Translations](#contributing-translations)).
-- **Improve documentation** in `README.md`, `CONTRIBUTING.md`, or the centralized docs hub.
+- **Improve documentation** in `README.md`, `CONTRIBUTING.md`, or the [`docs/`](./docs/README.md) directory.
 - **Submit code changes** via pull request.
 - **Review pull requests** from other contributors.
 
@@ -64,7 +64,7 @@ Contributing a new language or updating an existing one requires **editing only 
    ```bash
    npm run check:i18n
    ```
-   The validator automatically detects your new drop-in file and verifies that all 258 required keys are present, non-empty, and free of typos.
+   The validator automatically detects your new drop-in file and verifies that all 292 required keys are present, non-empty, and free of typos.
 
 4. **Verify frontend integrity:**
    ```bash
@@ -263,9 +263,9 @@ src/                         # Frontend SvelteKit SPA
   lib/                       # Flat modules: api, client, types, query, cache, image, format
     i18n/                    # LocaleCatalog class, en.json default, drop-in packs
     components/              # UI components
-    design/                  # CSS tokens and base styles
-    stores/                  # Runes-based stores (incl. locale)
+    stores/                  # Runes-based stores (locale, navigation, settings)
   routes/                    # SvelteKit routes
+  styles/                    # Modern SCSS architecture (variables, mixins, components, views)
 src-tauri/                   # Rust backend
   src/
     commands.rs              # Tauri command layer (45 commands)
@@ -289,7 +289,7 @@ The short version:
 
 - **Svelte 5 runes** (`$state`, `$derived`, `$effect`, `$props`).
 - **Strict TypeScript** enabled.
-- **Plain CSS** with design tokens (`src/lib/design/tokens.css`). No CSS frameworks.
+- **Modern SCSS** with modular partials (`src/styles/`). Design tokens centralized in `_variables.scss`.
 - File/folder names: `kebab-case`.
 - Component names: `PascalCase`.
 - Prefer `$lib/` aliases for imports.
@@ -398,7 +398,7 @@ flowchart TD
 2. **Create a branch** from `main`.
 3. **Make focused commits** following the commit-message format.
 4. **Run checks** (`npm run check`, `cargo check`, `cargo test`).
-5. **Update docs** if behavior changed (`CHANGELOG.md`, `README.md`, or the centralized docs hub as appropriate).
+5. **Update docs** if behavior changed (`CHANGELOG.md`, `README.md`, or the [`docs/`](./docs/README.md) directory as appropriate).
 6. **Open a PR** and fill out the template. Use `--body-file` for non-interactive submission if needed.
 7. **Respond to review feedback** and keep the branch up to date with `main`.
 
@@ -435,7 +435,7 @@ Only maintainers cut releases.
 
 ## Getting Help
 
-- Read the [`README.md`](./README.md), [`SUPPORT.md`](./SUPPORT.md), and the [documentation hub](https://docs.helix-origin.club/nh-reader/) first.
+- Read the [`README.md`](./README.md), [`SUPPORT.md`](./SUPPORT.md), and the [`docs/`](./docs/README.md) directory first.
 - Check existing [Discussions](https://github.com/HELIX-Origin/nh-reader/discussions) and the [Discord community](https://discord.com/invite/Ww3XBZC2HV).
 - Open a [GitHub Issue](https://github.com/HELIX-Origin/nh-reader/issues) if something is unclear or broken.
 
